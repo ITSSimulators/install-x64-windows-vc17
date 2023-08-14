@@ -1,0 +1,57 @@
+SRCSRV: ini ------------------------------------------------
+VERSION=2
+SRCSRV: variables ------------------------------------------
+RAWURL=https://raw.github.com/ShiftMediaProject/fontconfig.git/d1076e1d6cbe274ff8fce61ec73a6850ff01b60d/%var2%
+SRCSRVVERCTRL=https
+SRCSRVTRG=%RAWURL%
+SRCSRV: source files ---------------------------------------
+C:\projects\fontconfig\fontconfig\fcfreetype.h*fontconfig/fcfreetype.h
+C:\projects\fontconfig\fontconfig\fcprivate.h*fontconfig/fcprivate.h
+C:\projects\fontconfig\fontconfig\fontconfig.h*fontconfig/fontconfig.h
+C:\projects\fontconfig\src\fcarch.h*src/fcarch.h
+C:\projects\fontconfig\src\fcatomic.h*src/fcatomic.h
+C:\projects\fontconfig\src\fcdeprecate.h*src/fcdeprecate.h
+C:\projects\fontconfig\src\fcftint.h*src/fcftint.h
+C:\projects\fontconfig\src\fcint.h*src/fcint.h
+C:\projects\fontconfig\src\fcmutex.h*src/fcmutex.h
+C:\projects\fontconfig\src\fcobjs.h*src/fcobjs.h
+C:\projects\fontconfig\src\fcwindows.h*src/fcwindows.h
+C:\projects\fontconfig\src\ftglue.h*src/ftglue.h
+C:\projects\fontconfig\SMP\config.h*SMP/config.h
+C:\projects\fontconfig\SMP\fc-blanks\fcblanks.h*SMP/fc-blanks/fcblanks.h
+C:\projects\fontconfig\SMP\fc-case\fccase.h*SMP/fc-case/fccase.h
+C:\projects\fontconfig\SMP\fc-glyphname\fcglyphname.h*SMP/fc-glyphname/fcglyphname.h
+C:\projects\fontconfig\SMP\fc-lang\fclang.h*SMP/fc-lang/fclang.h
+C:\projects\fontconfig\SMP\src\fcalias.h*SMP/src/fcalias.h
+C:\projects\fontconfig\SMP\src\fcaliastail.h*SMP/src/fcaliastail.h
+C:\projects\fontconfig\SMP\src\fcftalias.h*SMP/src/fcftalias.h
+C:\projects\fontconfig\SMP\src\fcftaliastail.h*SMP/src/fcftaliastail.h
+C:\projects\fontconfig\SMP\src\fcstdint.h*SMP/src/fcstdint.h
+C:\projects\fontconfig\src\fcatomic.c*src/fcatomic.c
+C:\projects\fontconfig\src\fcblanks.c*src/fcblanks.c
+C:\projects\fontconfig\src\fccache.c*src/fccache.c
+C:\projects\fontconfig\src\fccfg.c*src/fccfg.c
+C:\projects\fontconfig\src\fccharset.c*src/fccharset.c
+C:\projects\fontconfig\src\fccompat.c*src/fccompat.c
+C:\projects\fontconfig\src\fcdbg.c*src/fcdbg.c
+C:\projects\fontconfig\src\fcdefault.c*src/fcdefault.c
+C:\projects\fontconfig\src\fcdir.c*src/fcdir.c
+C:\projects\fontconfig\src\fcformat.c*src/fcformat.c
+C:\projects\fontconfig\src\fcfreetype.c*src/fcfreetype.c
+C:\projects\fontconfig\src\fcfs.c*src/fcfs.c
+C:\projects\fontconfig\src\fcinit.c*src/fcinit.c
+C:\projects\fontconfig\src\fclang.c*src/fclang.c
+C:\projects\fontconfig\src\fclist.c*src/fclist.c
+C:\projects\fontconfig\src\fcmatch.c*src/fcmatch.c
+C:\projects\fontconfig\src\fcmatrix.c*src/fcmatrix.c
+C:\projects\fontconfig\src\fcname.c*src/fcname.c
+C:\projects\fontconfig\src\fcobjs.c*src/fcobjs.c
+C:\projects\fontconfig\src\fcpat.c*src/fcpat.c
+C:\projects\fontconfig\src\fcrange.c*src/fcrange.c
+C:\projects\fontconfig\src\fcserialize.c*src/fcserialize.c
+C:\projects\fontconfig\src\fcstat.c*src/fcstat.c
+C:\projects\fontconfig\src\fcstr.c*src/fcstr.c
+C:\projects\fontconfig\src\fcweight.c*src/fcweight.c
+C:\projects\fontconfig\src\fcxml.c*src/fcxml.c
+C:\projects\fontconfig\src\ftglue.c*src/ftglue.c
+SRCSRV: end ------------------------------------------------

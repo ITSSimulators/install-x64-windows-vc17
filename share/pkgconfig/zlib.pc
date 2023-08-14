@@ -1,0 +1,13 @@
+prefix=E:/sim/Packages/install-2-x64-win64-vc14
+exec_prefix=E:/sim/Packages/install-2-x64-win64-vc14
+libdir=E:/sim/Packages/install-2-x64-win64-vc14/lib
+sharedlibdir=E:/sim/Packages/install-2-x64-win64-vc14/lib
+includedir=E:/sim/Packages/install-2-x64-win64-vc14/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
