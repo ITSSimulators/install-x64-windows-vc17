@@ -171,7 +171,6 @@ class OSGSHADOW_EXPORT ViewDependentShadowMap : public ShadowTechnique
 
         virtual osg::StateSet* selectStateSetForRenderingShadow(ViewDependentData& vdd) const;
 
-
 protected:
         virtual ~ViewDependentShadowMap();
 
@@ -187,7 +186,7 @@ protected:
         osg::ref_ptr<osg::Texture2D>            _fallbackShadowMapTexture;
 
         typedef std::vector< osg::ref_ptr<osg::Uniform> > Uniforms;
-        mutable OpenThreads::Mutex              _accessUnfiromsAndProgramMutex;
+        mutable OpenThreads::Mutex              _accessUniformsAndProgramMutex;
         Uniforms                                _uniforms;
         osg::ref_ptr<osg::Program>              _program;
 };

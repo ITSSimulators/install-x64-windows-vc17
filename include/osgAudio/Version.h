@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2011 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OSGAUDIO_VERSION_H
@@ -39,9 +40,9 @@
  *
  */
 
-#define OSGAUDIO_MAJOR_VERSION 2
-#define OSGAUDIO_MINOR_VERSION 0
-#define OSGAUDIO_SUB_VERSION 0
+#define OSGAUDIO_MAJOR_VERSION (2)
+#define OSGAUDIO_MINOR_VERSION (0)
+#define OSGAUDIO_SUB_VERSION (0)
 
 // C preprocessor integrated version number.
 // The form is Mmmss, where:
@@ -57,12 +58,13 @@
         ( OSGAUDIO_MINOR_VERSION * 100 ) + \
         OSGAUDIO_SUB_VERSION )
 
+///Define whether we are using OpenAL or FMOD
 
 /// Integration of 3D Sound into OpenSceneGraph.
 namespace osgAudio {
-	OSGAUDIO_EXPORT std::string getVersion();
-	OSGAUDIO_EXPORT unsigned int getVersionNumber();
-	OSGAUDIO_EXPORT std::string getLibraryName();
+    OSGAUDIO_EXPORT std::string getVersion();
+    OSGAUDIO_EXPORT unsigned int getVersionNumber();
+    OSGAUDIO_EXPORT std::string getLibraryName();
 } // namespace osgAudio
 
 #endif // OSGAUDIO_VERSION_H

@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OSGAUDIO_FILESTREAMOPENALPP_H_H
@@ -36,48 +37,48 @@
 
 namespace osgAudio 
 {
-	/// A FileStream is an audio stream resident in a (typically compressed) file like MP3 or OGG.
-	/*!
-	This class offers a basic abstract API that adapts to various audio backends.
-	It is based on the Adapter Design pattern.
-	*/
+    /// A FileStream is an audio stream resident in a (typically compressed) file like MP3 or OGG.
+    /*!
+    This class offers a basic abstract API that adapts to various audio backends.
+    It is based on the Adapter Design pattern.
+    */
 
-	class OSGAUDIO_EXPORT FileStream : public osgAudio::Stream {
-	public:
-		/**
-		* Constructor. A FileError will be thrown if the file can't be opened or
-		* isn't recognized.
-		* @param filename is the name of the file to try to open.
-		* @param buffersize is an optional parameter specifying how large the
-		* buffer should be (in samples per second).
-		*/
-		FileStream(const std::string& filename,const int buffersize=4096) 
-			throw (NameError,InitError,FileError);
+    class OSGAUDIO_EXPORT FileStream : public osgAudio::Stream {
+    public:
+        /**
+        * Constructor. A FileError will be thrown if the file can't be opened or
+        * isn't recognized.
+        * @param filename is the name of the file to try to open.
+        * @param buffersize is an optional parameter specifying how large the
+        * buffer should be (in samples per second).
+        */
+        FileStream(const std::string& filename,const int buffersize=4096) 
+            throw (NameError,InitError,FileError);
 
-		/**
-		* Copy constructor.
-		*/
-		FileStream(const FileStream &stream);
+        /**
+        * Copy constructor.
+        */
+        FileStream(const FileStream &stream);
 
 
-		FileStream &operator=(const FileStream &stream);
+        FileStream &operator=(const FileStream &stream);
 
-		/**
-		* Turn on/off looping.
-		* @param loop is true if the stream should loop, false otherwise.
-		*/
-		void setLooping(bool loop = true);
+        /**
+        * Turn on/off looping.
+        * @param loop is true if the stream should loop, false otherwise.
+        */
+        void setLooping(bool loop = true);
 
-		std::string getFilename() const;
+        std::string getFilename() const;
 
-	protected:
-		/**
-		* Destructor.
-		*/
-		virtual ~FileStream();
+    protected:
+        /**
+        * Destructor.
+        */
+        virtual ~FileStream();
 
-		// we have no FileStream object here, because it is a derived class of Stream, so we store it there
-		}; // FileStream
+        // we have no FileStream object here, because it is a derived class of Stream, so we store it there
+        }; // FileStream
 
 
 } // namespace osgAudio

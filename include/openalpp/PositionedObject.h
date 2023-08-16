@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OPENALPP_POSITIONEDOBJECT_H
@@ -30,52 +31,52 @@
 
 namespace openalpp {
 
-	/**
-	* Virtual base class for positioned objects.
-	* (I.e. listeners and sources).
-	*/
-	class OPENALPP_API PositionedObject : public AudioBase {
+    /**
+    * Virtual base class for positioned objects.
+    * (I.e. listeners and sources).
+    */
+    class OPENALPP_API PositionedObject : public AudioBase {
 
-	public:
+    public:
 
-		PositionedObject() {}
+        PositionedObject() {}
 
-		/**
-		* Set position.
-		* @param x x coordinate.
-		* @param y y coordinate.
-		* @param z z coordinate.
-		*/
-		virtual void setPosition(float x, float y, float z)=0;
+        /**
+        * Set position.
+        * @param x x coordinate.
+        * @param y y coordinate.
+        * @param z z coordinate.
+        */
+        virtual void setPosition(float x, float y, float z)=0;
 
-		/**
-		* Get position.
-		* @param x x coordinate.
-		* @param y y coordinate.
-		* @param z z coordinate.
-		*/
-		virtual void getPosition(float &x, float &y, float &z) const =0;
+        /**
+        * Get position.
+        * @param x x coordinate.
+        * @param y y coordinate.
+        * @param z z coordinate.
+        */
+        virtual void getPosition(float &x, float &y, float &z) const =0;
 
-		/**
-		* Set velocity.
-		* @param vx x member of velocity vector.
-		* @param vy y member of velocity vector.
-		* @param vz z member of velocity vector.
-		*/
-		virtual void setVelocity(float vx, float vy, float vz)=0;
+        /**
+        * Set velocity.
+        * @param vx x member of velocity vector.
+        * @param vy y member of velocity vector.
+        * @param vz z member of velocity vector.
+        */
+        virtual void setVelocity(float vx, float vy, float vz)=0;
 
-		/**
-		* Get velocity.
-		* @param vx x member of velocity vector.
-		* @param vy y member of velocity vector.
-		* @param vz z member of velocity vector.
-		*/
-		virtual void getVelocity(float &vx, float &vy, float &vz) const =0;
+        /**
+        * Get velocity.
+        * @param vx x member of velocity vector.
+        * @param vy y member of velocity vector.
+        * @param vz z member of velocity vector.
+        */
+        virtual void getVelocity(float &vx, float &vy, float &vz) const =0;
 
-	protected:
-		virtual ~PositionedObject() {}
+    protected:
+        virtual ~PositionedObject() {}
 
-	};
+    };
 
 }
 

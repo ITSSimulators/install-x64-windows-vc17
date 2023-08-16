@@ -17,7 +17,10 @@
 #include <osgVolume/Export>
 
 #include <osg/Object>
+#include <osg/observer_ptr>
 #include <osg/Matrixd>
+#include <osg/TexGen>
+#include <osg/MatrixTransform>
 
 #include <vector>
 
@@ -64,6 +67,12 @@ class OSGVOLUME_EXPORT Locator : public osg::Object
         bool computeLocalBounds(osg::Vec3d& bottomLeft, osg::Vec3d& topRight) const;
         bool computeLocalBounds(Locator& source, osg::Vec3d& bottomLeft, osg::Vec3d& topRight) const;
 
+        /** Return true if the axis of the Locator are inverted requiring the faces of any cubes used from rendering to be flipped to ensure the correct front/back face is used.*/
+        bool inverted() const;
+
+        /** apply the appropriate FrontFace setting to provided StateSet to ensure that the rendering of hull of the volume is the correct orientation.*/
+        void applyAppropriateFrontFace(osg::StateSet* ss) const;
+
 
         /** Callback interface for enabling the monitoring of changes to the Locator.*/
         class LocatorCallback : virtual public osg::Object
@@ -80,6 +89,9 @@ class OSGVOLUME_EXPORT Locator : public osg::Object
         };
 
         void addCallback(LocatorCallback* callback);
+        template<class T> void addCallback(const osg::ref_ptr<T>& callback) { addCallback(callback.get()); }
+
+
         void removeCallback(LocatorCallback* callback);
 
         typedef std::vector< osg::ref_ptr<LocatorCallback> > LocatorCallbacks;
@@ -94,6 +106,36 @@ class OSGVOLUME_EXPORT Locator : public osg::Object
 
         LocatorCallbacks    _locatorCallbacks;
 };
+
+class OSGVOLUME_EXPORT TransformLocatorCallback : public Locator::LocatorCallback
+{
+    public:
+
+        TransformLocatorCallback(osg::MatrixTransform* transform);
+
+        void locatorModified(Locator* locator);
+
+    protected:
+
+        osg::observer_ptr<osg::MatrixTransform> _transform;
+};
+
+
+class OSGVOLUME_EXPORT TexGenLocatorCallback : public Locator::LocatorCallback
+{
+    public:
+
+        TexGenLocatorCallback(osg::TexGen* texgen, Locator* geometryLocator, Locator* imageLocator);
+
+        void locatorModified(Locator*);
+
+    protected:
+
+        osg::observer_ptr<osg::TexGen> _texgen;
+        osg::observer_ptr<osgVolume::Locator> _geometryLocator;
+        osg::observer_ptr<osgVolume::Locator> _imageLocator;
+};
+
 
 }
 

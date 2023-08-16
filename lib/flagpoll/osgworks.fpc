@@ -7,7 +7,7 @@ Name: osgWorks
 Description: osgWorks release pre-compiled for VES
 Provides: osgWorks osgworks
 Requires: openscenegraph openthreads
-Version: 3.00.00
+Version: 3.00.02
 Libs: /libpath:"${libdir}" osgwControls.lib osgwMx.lib osgwTools.lib osgwQuery.lib
 Cflags: /I"${includedir}"
 Arch: noarch

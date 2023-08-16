@@ -1,13 +1,13 @@
 # pkg-config source file
 
-prefix=C:/soft/simdeps/v140-x64
+prefix=C:/sim/Packages/install-x64-windows-vc17
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
 Name: openthreads
 Description: Object-Oriented (OO) thread interface for C++ programmers
-Version: 3.2.1
+Version: 3.3.1
 Requires:
 Conflicts:
 Libs: -L${libdir} -lOpenThreads

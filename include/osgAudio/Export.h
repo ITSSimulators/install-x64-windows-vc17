@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 byKenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OSGAUDIO_EXPORT_H

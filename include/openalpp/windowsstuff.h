@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OPENALPP_WINDOWSSTUFF_H
@@ -39,24 +40,24 @@
 
 #ifndef WIN32
   
-	#include <unistd.h>
+    #include <unistd.h>
 
 #else // WIN32
 
-	#ifdef _MSC_VER
-		// C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-		//#pragma warning( disable : 4290 )
-	#endif
+    #ifdef _MSC_VER
+        // C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+        //#pragma warning( disable : 4290 )
+    #endif
 
-	#include <openalpp/Export.h>
-	#include <windows.h>
+    #include <openalpp/Export.h>
+    #include <windows.h>
 
-	inline void usleep( int x ) { Sleep( x /1000 ); };
+    inline void usleep( int x ) { Sleep( x /1000 ); };
 
-	#include <AL/alut.h>
+    #include <AL/alut.h>
 
-	#define alGetSourceiv alGetSourcei
+    #define alGetSourceiv alGetSourcei
 
 #endif // WIN32
 
-#endif	// OPENALPP_WINDOWSSTUFF_H
+#endif    // OPENALPP_WINDOWSSTUFF_H

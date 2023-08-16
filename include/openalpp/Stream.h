@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OPENALPP_STREAM_H
@@ -40,63 +41,63 @@
 namespace openalpp {
 
 
-	/**
-	* Base class for NetStream and InputDevice.
-	* Used for audio streams.
-	*/
-	class OPENALPP_API Stream : public SoundData {
-	protected:
-		/**
-		* For double-buffering of sounds.
-		*/
-		osg::ref_ptr<SoundData> buffer2_;
+    /**
+    * Base class for NetStream and InputDevice.
+    * Used for audio streams.
+    */
+    class OPENALPP_API Stream : public SoundData {
+    protected:
+        /**
+        * For double-buffering of sounds.
+        */
+        osg::ref_ptr<SoundData> buffer2_;
 
-		osg::ref_ptr<StreamUpdater> updater_;
-	public:
-		/**
-		* Default constructor.
-		*/
-		Stream() throw (NameError);
+        osg::ref_ptr<StreamUpdater> updater_;
+    public:
+        /**
+        * Default constructor.
+        */
+        Stream() throw (NameError);
 
-		/**
-		* Copy constructor.
-		*/
-		Stream(const Stream &stream);
+        /**
+        * Copy constructor.
+        */
+        Stream(const Stream &stream);
 
-		/**
-		* Assignment operator.
-		*/
-		Stream &operator=(const Stream &stream);
+        /**
+        * Assignment operator.
+        */
+        Stream &operator=(const Stream &stream);
 
 
-		void prepareForDeletion() {updater_->cancel();}
+        void prepareForDeletion() {updater_->cancel();}
 
-		/**
-		* Start recording.
-		* I.e. start copying data to buffers.
-		* @param sourcename is the (OpenAL) name of the source.
-		*/
-		void record(ALuint sourcename);
+        /**
+        * Start recording.
+        * I.e. start copying data to buffers.
+        * @param sourcename is the (OpenAL) name of the source.
+        */
+        void record(ALuint sourcename);
 
-		/**
-		* Seeks to specified time
-		*/
-		void seek(float time_s); 
+        /**
+        * Seeks to specified time
+        */
+        void seek(float time_s); 
 
-		/**
-		* Stop recording.
-		* @param sourcename is the (OpenAL) name of the source.
-		*/
-		void stop(ALuint sourcename);
+        /**
+        * Stop recording.
+        * @param sourcename is the (OpenAL) name of the source.
+        */
+        void stop(ALuint sourcename);
 
-	protected:
-		/**
-		* Destructor.
-		*/
-		virtual ~Stream();
+    protected:
+        /**
+        * Destructor.
+        */
+        virtual ~Stream();
 
-		bool isRecording_;
-	};
+        bool isRecording_;
+    };
 
 }
 

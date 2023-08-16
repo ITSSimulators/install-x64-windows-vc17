@@ -1,7 +1,8 @@
 /* -*-c++-*- */
 /**
  * osgAudio - OpenSceneGraph Audio Library
- * Copyright (C) 2010 AlphaPixel, LLC
+ * (C) Copyright 2009-2012 by Kenneth Mark Bryden
+ * (programming by Chris 'Xenon' Hanson, AlphaPixel, LLC xenon at alphapixel.com)
  * based on a fork of:
  * Osg AL - OpenSceneGraph Audio Library
  * Copyright (C) 2004 VRlab, Umeå University
@@ -19,7 +20,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef OPENALPP_SOUNDDATA_H
@@ -40,65 +41,65 @@
 
 namespace openalpp {
 
-	/**
-	* Base class for sound data.
-	*/
-	class OPENALPP_API SoundData : public AudioBase {
-	protected:
-		/**
-		* Protected class to handle generation/deletion of OpenAL buffers correctly.
-		*/
-		class SoundBuffer : public osg::Referenced {
-			ALuint buffername_;
-		protected:
-			virtual ~SoundBuffer();
+    /**
+    * Base class for sound data.
+    */
+    class OPENALPP_API SoundData : public AudioBase {
+    protected:
+        /**
+        * Protected class to handle generation/deletion of OpenAL buffers correctly.
+        */
+        class SoundBuffer : public osg::Referenced {
+            ALuint buffername_;
+        protected:
+            virtual ~SoundBuffer();
 
-		public:
-			SoundBuffer() throw (NameError);
-			SoundBuffer(ALuint buffer_id) throw (NameError) { buffername_ = buffer_id; }
-			ALuint getName() {return buffername_;}
-		};
-	public:
-		/**
-		* Get the OpenAL name for the buffer.
-		* @return the OpenAL name.
-		*/
-		ALuint getAlBuffer() const;
+        public:
+            SoundBuffer() throw (NameError);
+            SoundBuffer(ALuint buffer_id) throw (NameError) { buffername_ = buffer_id; }
+            ALuint getName() {return buffername_;}
+        };
+    public:
+        /**
+        * Get the OpenAL name for the buffer.
+        * @return the OpenAL name.
+        */
+        ALuint getAlBuffer() const;
 
-		/**
-		* Constructor.
-		*/
-		SoundData() throw (NameError,InitError);
+        /**
+        * Constructor.
+        */
+        SoundData() throw (NameError,InitError);
 
 
 
-		/**
-		* Copy constructor.
-		*/
-		SoundData(const SoundData &sounddata);
+        /**
+        * Copy constructor.
+        */
+        SoundData(const SoundData &sounddata);
 
-		/**
-		* Assignment operator.
-		*/
-		SoundData &operator=(const SoundData &sounddata);
+        /**
+        * Assignment operator.
+        */
+        SoundData &operator=(const SoundData &sounddata);
 
-	protected:
+    protected:
 
-		/**
-		* Destructor.
-		*/
-		virtual ~SoundData();
+        /**
+        * Destructor.
+        */
+        virtual ~SoundData();
 
-		/**
-		* See class SoundBuffer comment.
-		*/
-		osg::ref_ptr<SoundBuffer> buffer_;
+        /**
+        * See class SoundBuffer comment.
+        */
+        osg::ref_ptr<SoundBuffer> buffer_;
 
-		/**
-		* OpenAL name for the buffer.
-		*/
-		//ALuint buffername_;
-	};
+        /**
+        * OpenAL name for the buffer.
+        */
+        //ALuint buffername_;
+    };
 
 }
 

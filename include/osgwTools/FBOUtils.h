@@ -22,9 +22,9 @@
 #define __OSGWTOOLS_FBO_UTILS_H__ 1
 
 
-#include "osgwTools/Export.h"
+#include <osg/Version>
+#include <osgwTools/Version.h>
 #include <osg/FrameBufferObject>
-
 
 
 namespace osgwTools
@@ -40,6 +40,12 @@ OSG versions.
 */
 /*@{*/
 
+// Version in which OSG removed "EXT" off of FBO commands.
+// (E.g., "glGenFramebuffersEXT" became "glGenFramebuffers".
+#define OSG_FBO_CHANGE_VERSION 20906
+// Version in which OSG moved FBO commands from osg::FBOExtensions object
+// to osg::GLExtensions object, and removed FBOExtensions object altogether.
+#define OSG_FBO_CHANGE_2_VERSION 30303
 
 #ifndef GL_FRAMEBUFFER
 #  define GL_FRAMEBUFFER 0x8D40
@@ -93,6 +99,16 @@ OSG versions.
 
 
 
+#if( OSGWORKS_OSG_VERSION >= OSG_FBO_CHANGE_2_VERSION )
+GLvoid OSGWTOOLS_EXPORT glGenFramebuffers( osg::GLExtensions* fboExt, GLsizei n, GLuint* framebuffer );
+GLvoid OSGWTOOLS_EXPORT glDeleteFramebuffers( osg::GLExtensions* fboExt, GLsizei n, GLuint* framebuffer );
+GLvoid OSGWTOOLS_EXPORT glBindFramebuffer( osg::GLExtensions* fboExt, GLenum target, GLuint framebuffer );
+
+GLvoid OSGWTOOLS_EXPORT glFramebufferTexture2D( osg::GLExtensions* fboExt, GLenum target, GLenum attachment,
+            GLenum textarget, GLuint texture, GLint level );
+GLvoid OSGWTOOLS_EXPORT glBlitFramebuffer(  osg::GLExtensions* fboExt, GLint srcX0, GLint srcY0, GLint srcX1,
+            GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter );
+#else
 GLvoid OSGWTOOLS_EXPORT glGenFramebuffers( osg::FBOExtensions* fboExt, GLsizei n, GLuint* framebuffer );
 GLvoid OSGWTOOLS_EXPORT glDeleteFramebuffers( osg::FBOExtensions* fboExt, GLsizei n, GLuint* framebuffer );
 GLvoid OSGWTOOLS_EXPORT glBindFramebuffer( osg::FBOExtensions* fboExt, GLenum target, GLuint framebuffer );
@@ -101,7 +117,7 @@ GLvoid OSGWTOOLS_EXPORT glFramebufferTexture2D( osg::FBOExtensions* fboExt, GLen
             GLenum textarget, GLuint texture, GLint level );
 GLvoid OSGWTOOLS_EXPORT glBlitFramebuffer(  osg::FBOExtensions* fboExt, GLint srcX0, GLint srcY0, GLint srcX1,
             GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter );
-
+#endif
 
 /*@}*/
 
